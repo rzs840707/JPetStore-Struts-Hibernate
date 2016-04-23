@@ -1,8 +1,17 @@
 package com.maxiaolong.jpetstore.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by maxiaolong on 2016/3/7.
  */
+@Entity
+@Table(name = "item")
 public class Item {
     private String itemid;
     private String productid;
@@ -10,6 +19,7 @@ public class Item {
     private String descn;
     private double listprice;
     private String image;
+
 
     public String getProductid() {
         return productid;
@@ -27,6 +37,9 @@ public class Item {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue(generator = "assigned")
+    @GenericGenerator(name = "assigned",strategy = "assigned")
     public String getItemid() {
         return itemid;
     }

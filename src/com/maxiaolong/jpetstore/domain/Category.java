@@ -1,14 +1,25 @@
 package com.maxiaolong.jpetstore.domain;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * Created by maxiaolong on 2016/3/6.
  */
+
+@Entity
+@Table(name = "category")
 public class Category {
 
     private String catid;
     private String name;
     private String descn;
 
+    @Id
+    @GeneratedValue(generator = "assigned")
+    @GenericGenerator(name = "assigned",strategy = "assigned")
     public String getCatid() {
         return catid;
     }

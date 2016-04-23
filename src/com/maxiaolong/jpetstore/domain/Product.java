@@ -1,8 +1,15 @@
 package com.maxiaolong.jpetstore.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * Created by maxiaolong on 2016/3/7.
  */
+
+@Entity
+@Table(name = "product")
 public class Product {
 
     private  String productid;
@@ -10,6 +17,9 @@ public class Product {
     private  String name;
     private String descn;
 
+    @Id
+    @GeneratedValue(generator = "assigned")
+    @GenericGenerator(name = "assigned",strategy = "assigned")
     public String getProductid() {
         return productid;
     }

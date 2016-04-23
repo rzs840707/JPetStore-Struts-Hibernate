@@ -9,6 +9,5 @@ import java.util.List;
  */
 public interface CategoryDAO {
        List<Category> getAll();
-
-       Category getCategoer(String catid);
+       Category getCategory(String catid);
 }

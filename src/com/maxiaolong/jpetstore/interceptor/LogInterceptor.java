@@ -30,7 +30,7 @@ public class LogInterceptor implements Interceptor {
         String result=actionInvocation.invoke();
         String userid=((User) ActionContext.getContext().getSession().get("userinfo")).getUserid();
         String dowhat= (String) ActionContext.getContext().getSession().get("dowhat");
-        if(dowhat!=null) {
+        if(dowhat!=null&&userid!=null) {
             Log log = new Log(userid, dowhat);
             logDAO.saveLog(log);
         }

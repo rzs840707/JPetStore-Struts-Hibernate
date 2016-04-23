@@ -1,14 +1,36 @@
 package com.maxiaolong.jpetstore.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * Created by maxiaolong on 2016/3/7.
  */
+
+@Entity
+@Table(name = "orders")
 public class Orders {
+    private int id;
     private String ordersid;
     private String itemid;
     private int quatity;
     private double totalprice;
     private int status;
+
+//    @Id
+//    @GeneratedValue(generator = "assigned")
+//    @GenericGenerator(name = "assigned", strategy = "assigned")
+
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getOrdersid() {
         return ordersid;
@@ -53,7 +75,7 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders( String ordersid,String itemid, int quatity, double totalprice, int status) {
+    public Orders(String ordersid, String itemid, int quatity, double totalprice, int status) {
         this.itemid = itemid;
         this.quatity = quatity;
         this.totalprice = totalprice;

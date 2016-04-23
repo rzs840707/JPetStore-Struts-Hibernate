@@ -1,5 +1,8 @@
 package com.maxiaolong.jpetstore.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -7,10 +10,24 @@ import java.sql.Timestamp;
 /**
  * Created by maxiaolong on 2016/4/3.
  */
+
+@Entity
+@Table(name = "log")
 public class Log {
+    private int id;
     private String userid;
     private Timestamp timestamp;
     private String dowhat;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUserid() {
         return userid;
